@@ -25,6 +25,10 @@ jobs:
             id: job3_step1
             run: |
                 echo "Hello Job3"
+          - name : "Evaluating Outcome"
+            if: steps.job3_step1.outcome == 'success'
+            run: echo "The Job3 is Success"      
+             
           
 
     report_job:
@@ -39,9 +43,7 @@ jobs:
             - name: "Repoting Failures"
               run: |
                     echo " One or more Jobs were failed"
-            - name : "Evaluating Outcome"
-              if: steps.job3_step1.outcome == 'success'
-              run: echo "The Job3 is Scuccess"
+           
 
 
 
