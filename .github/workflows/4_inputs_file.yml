@@ -1,19 +1,20 @@
 name: 4_inputs_wkfw
 
-on: workflow_dispatch
-
+on: 
+  workflow_dispatch:
     inputs:
-      name:
-        description: "Enter Your Name"
-        required: true
-        type: string
-        default: Keerthi
+        name:
+          description: "Enter Your Name"
+          required: true
+          type: string
+          default: Keerthi
 
 jobs:
-  runs-on: ubuntu-latest
+  input_job:
+    runs-on: ubuntu-latest
 
-  steps:
-    - name: "Display Your Name"
-      run: echo ${{ inputs.name }}
+    steps:
+      - name: "Display Your Name"
+        run: echo "${{ inputs.name }}""
       
      
