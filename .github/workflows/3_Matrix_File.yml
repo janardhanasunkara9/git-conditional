@@ -8,14 +8,18 @@ jobs:
     strategy:                                        ## Matrix Stntax
       matrix:
         os_type: [ubuntu-latest,ubuntu-24.04,macos-12]
-        command: ["Hello Matrix", "Hello Macos"]
+        command: ["Hello Matrix", "Hello Macos", "MAC NOT FOR ENTERPRISE"]
 
         include:
           - os_type: [ubuntu-latest]
             command: ["Oracle 19c NOT Supported on Unbuntu Latest"]
 
           - os_type: [macos-12]
-            command: [" Oracle NOT SUPPORTED ON MACOS"]    
+            command: [" Oracle NOT SUPPORTED ON MACOS"] 
+            
+        exclude:
+          - os_type: [ubuntu-latest,ubuntu-24.04]
+            command: ["MAC NOT FOR ENTERPRISE"]   
 
 
     runs-on: ${{ matrix.os_type }}      ## Calling MAtrix Context and assign OS Types                
