@@ -16,7 +16,7 @@ jobs:
           - command: ["Oracle Database NOT Supported on MACSOS"]
             os-type: [macos-12] 
 
-    runs-on: ${{ matrix.os_type }}                     ## Calling MAtrix Context and assign OS Types 
+    runs-on: ${{ matrix.os_type }}                     
         
     steps:
 
