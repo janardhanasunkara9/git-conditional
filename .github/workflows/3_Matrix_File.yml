@@ -1,22 +1,21 @@
 ##Learning About Matric Feature in Github Actions
- name: 3_Matrix_wkfw
-
+name: 3_Matrix_wkfw
 on: push
 
 jobs:
-    matrix_job:
+  matrix_job:
 
-        strategy:
-            matrix:
-                os_type: [ubuntu-latest,ubuntu-24.04,macos-12]
-                command: [echo "Hello Matrix", echo "Hello Macos"]
+    strategy:
+      matrix:
+        os_type: [ubuntu-latest,ubuntu-24.04,macos-12]
+        command: ["Hello Matrix", "Hello Macos"]
 
-        runs-on: ${{ matrix.os_type }}       
+    runs-on: ${{ matrix.os_type }}       
         
-        steps:
+    steps:
 
-            - name " Running Os Steps"
-              run: ${{ matrix.command }}
+      - name: " Running Os Steps"
+        run: echo ${{ matrix.command }}
 
 
                 
