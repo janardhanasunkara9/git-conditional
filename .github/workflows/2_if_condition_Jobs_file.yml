@@ -7,6 +7,7 @@ on: push
 jobs:
     job_1:
         runs-on: ubuntu-latest
+        continue-on-error: true    ##Define Contine On Errot to pass the job
         steps:
           - name: "Running Job1"
             run: echo "Hello Job1   ##On Purpose the Syntax is wrong
