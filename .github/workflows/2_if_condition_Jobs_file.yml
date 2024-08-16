@@ -9,10 +9,10 @@ jobs:
         runs-on: ubuntu-latest
         steps:
           - name: "Running Job1"
-            run: echo "Hello Job1
+            run: echo "Hello Job1   ##On Purpose the Syntax is wrong
 
     job_2:
-        needs: job_1
+        needs: job_1        ##Add Job Dependencies
         runs-on: ubuntu-latest
         steps:
           - name: "Running Job2"
@@ -22,12 +22,17 @@ jobs:
         runs-on: ubuntu-latest
         steps:
           - name: "Running Job3"
+            id: job3_step1
             run: echo "Hello Job3"
+            run echo "{{ steps.job3_step1.outcome }}"
 
     report_job:
-        needs: [job_2,job_3]
+        needs: [job_2,job_3]  ##Add dependcies
         runs-on: ubuntu-latest
-        if: failure()
+
+      ##Failure Handling   
+
+        if: failure()         
         steps:
 
             - name: "Repoting Failures"
