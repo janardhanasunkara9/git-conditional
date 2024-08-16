@@ -1,0 +1,40 @@
+##Learning About IF Confition between Jobs
+
+name: if_conition_jobs_wkfw
+
+on: push
+
+jobs:
+    job_1:
+        runs-on: ubuntu-latest
+        steps:
+          - name: "Running Job1"
+            run: echo "Hello Job1"
+
+    job_2:
+        needs: job_1
+        runs-on: ubuntu-latest
+        steps:
+          - name: "Running Job2"
+            run: echo "Hello Job2"
+
+    job_3:
+        runs-on: ubuntu-latest
+        steps:
+          - name: "Running Job3"
+            run: echo "Hello Job3"
+
+    report_job:
+        needs: [job_2,job_3]
+        runs-on: ubuntu-latest
+        if: failure()
+        steps:
+
+            - name: "Repoting Failures"
+              run: echo " One or more Jobs were failed"
+
+
+
+
+
+

@@ -1,4 +1,4 @@
-##Leaning IF Condition
+##Leaning IF Condition between Steps in a Given Job
 
 name: 1_if_condition_wkfw
 
@@ -12,11 +12,12 @@ jobs:
         steps:
 
             - name: "Step1"
-              id: Step1
-              run: echo "Hello Boy!!
+              id: Step1              ##Define ID for the Step1 
+              run: echo "Hello Boy!!  ##Syntax is Wrong
 
             - name: "Step2"
-              if: failure() && steps.Step1.outcome == 'failure'
+            #Define IF Condition to handle/report about Failure of Step 1 
+              if: failure() && steps.Step1.outcome == 'failure'  
               run: echo "Step1 failed in if condition job"
 
         
