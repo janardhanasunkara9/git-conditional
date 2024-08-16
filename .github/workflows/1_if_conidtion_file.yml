@@ -17,7 +17,7 @@ jobs:
 
             - name: "Step2"
               if: failure() && steps.Step1.outcome == 'failure'
-              run: "Step1 failed in if condition job"
+              run: echo "Step1 failed in if condition job"
 
         
               
