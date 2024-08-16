@@ -1,0 +1,24 @@
+##Leaning IF Condition
+
+name: 1_if_condition_wkfw
+
+on: push
+
+jobs:
+
+    if_condition_job:
+        runs-on: ubuntu-latest
+        
+        steps:
+
+            - name: "Step1"
+              id: Step1
+              run: echo "Hello Boy!!"
+
+            - name: "Step2"
+              if: failure() && steps.Step1.outcome == 'success'
+              run: "Step1 failed in if condition job"
+
+        
+              
+
