@@ -8,8 +8,8 @@ jobs:
     job_1:
         runs-on: ubuntu-latest
         steps:
-          - name: "Running Job1
-            run: echo "Hello Job1"
+          - name: "Running Job1"
+            run: echo "Hello Job1
 
     job_2:
         needs: job_1
