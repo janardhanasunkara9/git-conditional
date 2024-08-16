@@ -4,18 +4,24 @@ on: push
 
 jobs:
   matrix_job:
-
-    strategy:
+    continue-on-error: true
+    strategy:                                        ## Matrix Stntax
       matrix:
         os_type: [ubuntu-latest,ubuntu-24.04,macos-12]
         command: ["Hello Matrix", "Hello Macos"]
+        include:
+          - command: ["Oracle 19c NOT Supported on Unbuntu Latest"]
+            os_type: [ubuntu-latest]
+            
+          - command: ["Oracle Database NOT Supported on MACSOS"]
+            os-type: [macos-12] 
 
-    runs-on: ${{ matrix.os_type }}       
+    runs-on: ${{ matrix.os_type }}                     ## Calling MAtrix Context and assign OS Types 
         
     steps:
 
       - name: " Running Os Steps"
-        run: echo ${{ matrix.command }}
+        run: echo ${{ matrix.command }}                ## Calling Matrix Context
 
 
                 
