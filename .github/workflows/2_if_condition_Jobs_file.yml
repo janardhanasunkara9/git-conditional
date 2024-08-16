@@ -20,6 +20,7 @@ jobs:
 
     job_3:
         runs-on: ubuntu-latest
+        id: id_job3
         steps:
           - name: "Running Job3"
             id: job3_step1
@@ -37,7 +38,9 @@ jobs:
         steps:
 
             - name: "Repoting Failures"
-              run: echo " One or more Jobs were failed"
+              run: |
+                    echo " One or more Jobs were failed"
+                    echo "The Outcome is ${{ steps.id_job3.outcome }}"
 
 
 
