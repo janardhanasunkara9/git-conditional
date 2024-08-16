@@ -23,8 +23,9 @@ jobs:
         steps:
           - name: "Running Job3"
             id: job3_step1
-            run: echo "Hello Job3"
-            run echo "{{ steps.job3_step1.outcome }}"
+            run: |
+                echo "Hello Job3"
+                echo "The Outcome is {{ steps.job3_step1.outcome }}"
 
     report_job:
         needs: [job_2,job_3]  ##Add dependcies
