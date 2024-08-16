@@ -9,6 +9,10 @@ jobs:
       matrix:
         os_type: [ubuntu-latest,ubuntu-24.04,macos-12]
         command: ["Hello Matrix", "Hello Macos"]
+
+        include:
+          - command: ["Oracle 19c NOT Supported on Unbuntu Latest"]
+            os_type: [ubuntu-latest]
         
 
     runs-on: ${{ matrix.os_type }}      ## Calling MAtrix Context and assign OS Types                
