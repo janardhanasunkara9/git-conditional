@@ -5,19 +5,19 @@ on: push
 jobs:
   matrix_job:
     continue-on-error: true
-    strategy:                                        ## Matrix Stntax
+    strategy:                                        ## Matrix Syntax
       matrix:
         os_type: [ubuntu-latest,ubuntu-24.04,macos-12]
         command: ["Hello Matrix", "Hello Macos", "MAC NOT FOR ENTERPRISE"]
 
-        include:
+        include:                                         ##INCLUDE In MATRIX
           - os_type: [ubuntu-latest]
             command: ["Oracle 19c NOT Supported on Unbuntu Latest"]
 
           - os_type: [macos-12]
             command: [" Oracle NOT SUPPORTED ON MACOS"] 
             
-        exclude:
+        exclude:                                       ##Exclude in Matrix
           - os_type: [ubuntu-latest,ubuntu-24.04]
             command: ["MAC NOT FOR ENTERPRISE"]   
 
