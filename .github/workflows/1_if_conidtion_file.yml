@@ -13,7 +13,7 @@ jobs:
 
             - name: "Step1"
               id: Step1
-              run: echo "Hello Boy!!"
+              run: echo "Hello Boy!!
 
             - name: "Step2"
               if: failure() && steps.Step1.outcome == 'success'
