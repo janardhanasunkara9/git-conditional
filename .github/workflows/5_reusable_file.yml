@@ -11,10 +11,10 @@ on:
             default: "Upload Artifacts"
             type: string
 
-      outputs:                 ##Passing O/p value to Main Workflow
-        Address_Output:
-          description: "Passing Address to Main Workflow"
-          value: ${{ jobs.artifact_upload_job.outputs.outcome1 }}
+      #outputs:                 ##Passing O/p value to Main Workflow
+      #  Address_Output:
+      #    description: "Passing Address to Main Workflow"
+      #    value: ${{ jobs.artifact_upload_job.outputs.outcome1 }}
 
 
 jobs:
