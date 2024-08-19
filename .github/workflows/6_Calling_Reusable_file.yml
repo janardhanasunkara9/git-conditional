@@ -6,6 +6,8 @@ jobs:
     Calling_reuasble_job:
         runs-on: ubuntu-latest
         steps:
+            - name: "Get Code from Repo"
+              uses: actions/checkout@v3
             - name: "Calling Reusable Upload Artifact Job"
               uses: ./.github/workflows/5_reusable_file.yml
               with:
@@ -13,6 +15,7 @@ jobs:
 
     Download_Artifacts_Job:
         runs-on: ubuntu-latest
+        needs: Calling_reuasble_job
         steps:
             
             - name: "Download Artifacts Jobs"
