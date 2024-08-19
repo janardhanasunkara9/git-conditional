@@ -1,18 +1,28 @@
+##Define Reusable Workflow
+
 name: "Reusable_Articat_Upload_wkfw"
 
 on: 
-    workflow_call:
-      inputs:
-        artifact_name:
+    workflow_call:   ## Triggger Workflow when called by Other Workflowd
+      inputs:        ##Accepts Inputs from Other Workflows
+        artifact_name:    ###This Input Name and Variable name in other Workflow must be Same
             description: "Enter Artifact Name"
             required: false
             default: "Upload Artifacts"
             type: string
 
+      outputs:
+        Address_Output:
+          description: "Passing Address to Main Workflow"
+          value: ${{ jobs.artifact_upload_job.outputs.outcome1 }}
+
+
 jobs:
     artifact_upload_job:
 
       runs-on: ubuntu-latest
+      outputs: 
+        outcome1: ${{ id.test_output_id_1.outputs.address }}
       steps:
         - name: "Get Code from Repo"
           uses: actions/checkout@v3
@@ -24,7 +34,11 @@ jobs:
         - name: "Upload Artifacts"
           uses: actions/upload-artifact@v3
           with:
-            name: ${{ inputs.artifact_name }}
+            name: ${{ inputs.artifact_name }}     ## Passing Name through Input Parameters
             path: |
               /tmp/buddy.txt
               /tmp/db/nana.txt
+
+        - name: "TestOutputs"
+          id: test_output_id_1   
+          run: echo "::set-output name=address::'200 Manville Hill Road'" 

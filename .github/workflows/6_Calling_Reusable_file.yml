@@ -28,3 +28,5 @@ jobs:
                 pwd
                 ls -ltr
 
+            - name: "Display Address"
+              run: echo "${{ needs.Calling_reuasble_job.output.outcome1 }}""
