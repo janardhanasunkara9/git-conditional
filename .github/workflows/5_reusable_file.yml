@@ -3,7 +3,7 @@
 name: "Reusable_Articat_Upload_wkfw"
 
 on: 
-    workflow_dispatch:   ## Triggger Workflow when called by Other Workflowd
+    workflow_call:   ## Triggger Workflow when called by Other Workflowd
       inputs:        ##Accepts Inputs from Other Workflows
         artifact_name:    ###This Input Name and Variable name in other Workflow must be Same
             description: "Enter Artifact Name"
@@ -11,10 +11,10 @@ on:
             default: "Upload Artifacts"
             type: string
 
-      #outputs:                 ##Passing O/p value to Main Workflow
-      #  Address_Output:
-      #    description: "Passing Address to Main Workflow"
-      #    value: ${{ jobs.artifact_upload_job.outputs.outcome1 }}
+      outputs:                 ##Passing O/p value to Main Workflow
+        Address_Output:
+          description: "Passing Address to Main Workflow"
+          value: ${{ jobs.artifact_upload_job.outputs.outcome1 }}
 
 
 jobs:

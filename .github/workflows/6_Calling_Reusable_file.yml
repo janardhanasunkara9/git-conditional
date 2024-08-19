@@ -1,3 +1,5 @@
+###A Main Workflow calling a reusable Workflow.
+
 name: Calling_Reusable_wkfw
 
 on: push
@@ -29,4 +31,4 @@ jobs:
                 ls -ltr
 
             - name: "Display Address"                 ##Display Address by using Output of Reusable Workflow Output      
-              run: echo "${{ needs.Calling_reuasble_job.output.outcome1 }}""
+              run: echo " ${{ needs.Calling_reuasble_job.outputs.outcome1 }} "
