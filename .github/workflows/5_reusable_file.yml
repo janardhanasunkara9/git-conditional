@@ -3,7 +3,7 @@
 name: "Reusable_Articat_Upload_wkfw"
 
 on: 
-    workflow_call:   ## Triggger Workflow when called by Other Workflowd
+    workflow_dispatch:   ## Triggger Workflow when called by Other Workflowd
       inputs:        ##Accepts Inputs from Other Workflows
         artifact_name:    ###This Input Name and Variable name in other Workflow must be Same
             description: "Enter Artifact Name"
@@ -11,7 +11,7 @@ on:
             default: "Upload Artifacts"
             type: string
 
-      outputs:
+      outputs:                 ##Passing O/p value to Main Workflow
         Address_Output:
           description: "Passing Address to Main Workflow"
           value: ${{ jobs.artifact_upload_job.outputs.outcome1 }}
@@ -22,7 +22,7 @@ jobs:
 
       runs-on: ubuntu-latest
       outputs: 
-        outcome1: ${{ id.test_output_id_1.outputs.address }}
+        outcome1: ${{ id.test_output_id_1.outputs.address }}    ##Declare O/p in Job level 
       steps:
         - name: "Get Code from Repo"
           uses: actions/checkout@v3
@@ -41,4 +41,4 @@ jobs:
 
         - name: "TestOutputs"
           id: test_output_id_1   
-          run: echo "::set-output name=address::'200 Manville Hill Road'" 
+          run: echo "::set-output name=address::'200 Manville Hill Road'"   ##Assign a O/p value to a Key name called address
