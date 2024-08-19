@@ -22,7 +22,7 @@ jobs:
 
       runs-on: ubuntu-latest
       outputs: 
-        outcome1: ${{ id.test_output_id_1.outputs.address }}    ##Declare O/p in Job level 
+        outcome1: ${{ steps.test_output_id_1.outputs.address }}    ##Declare O/p in Job level 
       steps:
         - name: "Get Code from Repo"
           uses: actions/checkout@v3
