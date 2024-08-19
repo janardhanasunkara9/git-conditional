@@ -1,0 +1,27 @@
+name: Calling_Reusable_wkfw
+
+on: push
+
+jobs:
+    Calling_reuasble_job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: "Calling Reusable Upload Artifact Job"
+              uses: ./.github/workflows/5_reusable_file.yml
+              with:
+                artifact_name: upload_artifact_1
+
+    Download_Artifacts_Job:
+        runs-on: ubuntu-latest
+        steps:
+            
+            - name: "Download Artifacts Jobs"
+              uses: actions/download-artifact@v3
+              with:
+                name: upload_artifact_1
+
+            - name: "Listing Downloaded Files"    
+              run: |
+                pwd
+                ls -ltr
+

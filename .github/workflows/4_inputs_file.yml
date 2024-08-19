@@ -1,9 +1,11 @@
+###Learning Inputs for Workflow_Dispatch Event
+
 name: 4_inputs_wkfw
 
 on: 
   workflow_dispatch:
-    inputs:
-        name:
+    inputs:              ##Define Inputs
+        name:            ## Input Name
           description: "Enter Your Name"
           required: true
           type: string
@@ -15,6 +17,6 @@ jobs:
 
     steps:
       - name: "Display Your Name"
-        run: echo "${{ inputs.name }}"
+        run: echo "${{ inputs.name }}"     ## Calling Input.
       
      
