@@ -2,7 +2,7 @@
 
 name: Calling_Reusable_wkfw
 
-on: push
+on: [push,workflow_dispatch]
 
 jobs:
     Calling_reuasble_job:
