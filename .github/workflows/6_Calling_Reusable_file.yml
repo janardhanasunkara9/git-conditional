@@ -5,15 +5,17 @@ name: Calling_Reusable_wkfw
 on: [push,workflow_dispatch]
 
 jobs:
-    Calling_reuasble_job:
+    Get_Repo_Code_Job:
         runs-on: ubuntu-latest
         steps:
             - name: "Get Code from Repo"
               uses: actions/checkout@v3
-            - name: "Call ReusableArtifact Job"
-              uses: ./.github/workflows/5_reusable_file.yml
-              with:
-                artifact_name: upload_artifact_1
+    
+    Calling_reuasble_wkfw_job:
+    
+      uses: ./.github/workflows/5_reusable_file.yml
+      with:
+        artifact_name: upload_artifact_1
 
     Download_Artifacts_Job:
         runs-on: ubuntu-latest
