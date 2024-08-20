@@ -12,8 +12,18 @@ jobs:
         - name: "Get Code from Repo"
           uses: actions/checkout@v3
 
-        #- name: "Calling Composite Action"  
-        - uses: ./.github/actions
+        - name: "Calling Composite Action"  
+          id: composite_action_id_1
+          uses: ./.github/actions
           with:
             message: "Jana Living in Rhodeisland"
+
+        - name: "Find Living Address"
+          id: composite_action_id_2
+          uses: ./.github/actions
+          with:
+            message: "Jana Living in Rhodeisland"
+        - run: "echo ${{ steps.composite_action_id_2.outputs.current_address }} "
+
+         
 

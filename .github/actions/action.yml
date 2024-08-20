@@ -10,6 +10,12 @@ inputs:
     type: string
     required: true
 
+outputs:
+  current_address:
+    description: "Get the Living Address"
+    value: ${{ steps.address_id.outputs.address }}
+
+
 
 runs:
   using: "composite"
@@ -18,3 +24,8 @@ runs:
     - name: "Say Greetings"
       run: "echo ${{ inputs.message }}"
       shell: bash
+
+     - name: "Get Current Address"
+       id: address_id
+       run: echo "address=200 Manville Hill Road" >> $GITHUB_OUTPUT
+       shell: bash
