@@ -19,7 +19,7 @@ jobs:
 
     Download_Artifacts_Job:
         runs-on: ubuntu-latest
-        needs: Calling_reuasble_job
+        needs: Calling_reuasble_wkfw_job
         steps:
             
             - name: "Download Artifacts Jobs"           ##Download Artifacts
@@ -33,4 +33,4 @@ jobs:
                 ls -ltr
 
             - name: "Display Address"                 ##Display Address by using Output of Reusable Workflow Output      
-              run: echo " ${{ needs.Calling_reuasble_job.outputs.outcome1 }} "
+              run: echo " ${{ needs.Calling_reuasble_wkfw_job.outputs.outcome1 }} "
