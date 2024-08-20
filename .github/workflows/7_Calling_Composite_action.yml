@@ -18,9 +18,5 @@ jobs:
           with:
             message: "Jana Living in Rhodeisland"
 
-        - name: "Find Living Address"
-          id: composite_action_id_2
-          uses: ./.github/actions
-          with:
-            message: "Jana Living in Rhodeisland"
-        - run: "echo ${{ steps.composite_action_id_2.outputs.current_address }} "
+        - name: "Get O/p from Composite Action"
+          run: echo "The Address is ${{ steps.composite_action_id_1.outputs.current_address }} "
