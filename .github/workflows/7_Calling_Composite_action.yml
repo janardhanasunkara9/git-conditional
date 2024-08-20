@@ -1,0 +1,19 @@
+name: "Calling_Composite_Action_wkfw"
+
+on: push
+
+jobs:
+
+  composite_action_job:    
+
+    runs-on: ubuntu-latest
+
+    steps:
+        - name: "Get Code from Repo"
+          uses: actions/checkout@v3
+
+        - name: "Calling Composite Action"  
+          uses: ./.github/actions/1_action.yml
+          with:
+            message: "Jana Living in Rhodeisland"
+

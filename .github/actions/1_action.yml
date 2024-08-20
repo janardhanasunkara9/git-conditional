@@ -1,0 +1,20 @@
+name: "Composite_Action"
+
+description: "The Composite Action will do some specific tasks"
+
+inputs:
+
+  message:
+    description: "Send Message"
+    default: "Hello World"
+    type: string
+    required: true
+
+
+runs:
+  using: "composite"
+
+  steps:
+    - name: "Say Greetings"
+      run: "echo ${{ inputs.message }}"
+      shell: bash
