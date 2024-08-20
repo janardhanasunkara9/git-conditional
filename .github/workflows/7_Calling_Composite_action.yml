@@ -24,6 +24,3 @@ jobs:
           with:
             message: "Jana Living in Rhodeisland"
         - run: "echo ${{ steps.composite_action_id_2.outputs.current_address }} "
-
-         
-
