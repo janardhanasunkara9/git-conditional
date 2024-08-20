@@ -1,8 +1,12 @@
-name: "Composite_Action"
+## Create Composite Action.
 
-description: "The Composite Action will do some specific tasks"
+## The Composite Action cane be created in any folder but the action.yml should exist
 
-inputs:
+name: "Composite_Action"     ### Define name for Composite Action
+
+description: "The Composite Action will do some specific tasks"  ## Define Description for Composite Action
+
+inputs:                                           ## Define Inputs
 
   message:
     description: "Send Message"
@@ -10,15 +14,19 @@ inputs:
     type: string
     required: true
 
-outputs:
+outputs:                                            ##  Define Outputs
   current_address:
     description: "Get the Living Address"
     value: ${{ steps.address_id.outputs.address }}
 
+  current_county:
+    description: "Get The Current County"
+    value: ${{ steps.address_id.outputs.County }}
 
 
-runs:
-  using: "composite"
+
+runs:                                                 ## Defined Key word 
+  using: "composite"                                  ## Must be as is
 
   steps:
     - name: "Say Greetings"
@@ -27,5 +35,9 @@ runs:
 
     - name: "Get Current Address"
       id: address_id
-      run: echo "address=200 Manville Hill Road" >> $GITHUB_OUTPUT
+      run: |
+        echo "address=200 Manville Hill Road" >> $GITHUB_OUTPUT
+        echo "County=$city" >> $GITHUB_OUTPUT
       shell: bash
+      env:
+        city: "Cumberland"

@@ -1,10 +1,12 @@
+##This Worlflow calls the Custom Composite Action
+
 name: "Calling_Composite_Action_wkfw"
 
 on: push
 
 jobs:
 
-  composite_action_job:    
+  composite_action_job:     ##Define Job
 
     runs-on: ubuntu-latest
 
@@ -12,11 +14,13 @@ jobs:
         - name: "Get Code from Repo"
           uses: actions/checkout@v3
 
-        - name: "Calling Composite Action"  
+        - name: "Calling Composite Action"     ### Calling Custom Composite Action
           id: composite_action_id_1
           uses: ./.github/actions
           with:
-            message: "Jana Living in Rhodeisland"
+            message: "Jana Living in Rhodeisland"    ### Pass Value to the Input varuable
 
-        - name: "Get O/p from Composite Action"
-          run: echo "The Address is ${{ steps.composite_action_id_1.outputs.current_address }} "
+        - name: "Get O/p from Composite Action"     ### Get Outputs from Composite Actions
+          run: |
+            echo "The Address is ${{ steps.composite_action_id_1.outputs.current_address }} "
+            echo "The County is ${{  steps.composite_action_id_1.outputs.current_county }}"
